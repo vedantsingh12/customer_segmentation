@@ -1,16 +1,16 @@
-import numpy as np
 import pandas as pd
+import numpy as np
 num_records=500
 data={
-    "Customer_ID":[f"CUST{i:05d}"for i in range(1,num_records+1)],
-    "Age":np.random.randint(18,65,num_records),
-    "Gender":np.random.choice(['Male','Female',],num_records,p=[0.5,0.5]),
-    "Occupation":np.random.choice(["Student","Professional","Retired","Self_Employeed"],num_records),
-    "Income_Bracket":np.random.choice(["<$50K", "$50K–$100K", ">$100K"],num_records,p=[0.4,0.5,0.1]),
-    "Family_size":np.random.randint(1,6,num_records),
-    "Marital_status":np.random.choice(['Single','Married','Unmaried'],num_records),
-    "Education_Level":np.random.choice(["High School", "Bachelor’s", "Master’s", "PhD"],num_records),
-    "Region":np.random.choice(["North", "South", "East", "West"],num_records),
+    "Customer_ID": [f"CUST_{i:05d}" for i in range(1, num_records + 1)],
+    "Age": np.random.randint(18, 65, num_records),
+    "Gender": np.random.choice(["Male", "Female"], num_records, p=[0.5, 0.5]),
+    "Occupation": np.random.choice(["Student", "Professional", "Retired", "Unemployed"], num_records),
+    "Income_Bracket": np.random.choice(["<$50K", "$50K–$100K", ">$100K"], num_records, p=[0.5, 0.4, 0.1]),
+    "Family_Size": np.random.randint(1, 6, num_records),
+    "Marital_Status": np.random.choice(["Single", "Married", "Divorced"], num_records),
+    "Education_Level": np.random.choice(["High School", "Bachelor’s", "Master’s", "PhD"], num_records),
+    "Region": np.random.choice(["North", "South", "East", "West"], num_records),
     "Monthly_Revenue": np.random.uniform(50, 1000, num_records),
     "CLTV": np.random.uniform(1000, 20000, num_records),
     "Avg_Monthly_Data_Usage_GB": np.random.uniform(1, 200, num_records),
@@ -31,9 +31,7 @@ data={
     "Campaign_Responses": np.random.randint(0, 10, num_records),
     "Social_Media_Activity": np.random.choice(["High", "Moderate", "Low"], num_records),
     "Network_Complaints": np.random.randint(0, 10, num_records),
-    "Service_Downtime_Impact": np.random.choice(["Low", "Medium", "High"], num_records),
+    "Service_Downtime_Impact": np.random.choice(["Low", "Medium", "High"], num_records)
 }
 df=pd.DataFrame(data)
-
-
-#full_data.to_csv("../Data/customer_segment_data.csv", index=False)
+df.to_csv("../feature/CUSTOMER_SEGMENTATION.csv", index=False)
