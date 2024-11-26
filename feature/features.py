@@ -9,7 +9,7 @@ data={
     "Income_Bracket": np.random.choice(["<$50K", "$50K–$100K", ">$100K"], num_records, p=[0.5, 0.4, 0.1]),
     "Family_Size": np.random.randint(1, 6, num_records),
     "Marital_Status": np.random.choice(["Single", "Married", "Divorced"], num_records),
-    "Education_Level": np.random.choice(["High School", "Bachelor’s", "Master’s", "PhD"], num_records),
+    "Education_Level": np.random.choice(["High School", "Bachelors", "Masters", "PhD"], num_records),
     "Region": np.random.choice(["North", "South", "East", "West"], num_records),
     "Monthly_Revenue": np.random.uniform(50, 1000, num_records),
     "CLTV": np.random.uniform(1000, 20000, num_records),
@@ -34,4 +34,4 @@ data={
     "Service_Downtime_Impact": np.random.choice(["Low", "Medium", "High"], num_records)
 }
 df=pd.DataFrame(data)
-df.to_csv("../feature/CUSTOMER_SEGMENTATION.csv", index=False)
+df.to_csv("Data/customer_segment_data.csv", index=False)
