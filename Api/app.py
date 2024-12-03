@@ -11,3 +11,6 @@ def read_root():
 def read_root():
     return {'hello':'world'}
 
+@ app.get('Segment')
+def segment ():
+    return (10)*(5)
