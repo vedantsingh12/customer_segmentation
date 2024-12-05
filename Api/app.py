@@ -45,3 +45,48 @@ cluster_data = [
 ]
 
 cluster_profiles=pd.DataFrame(cluster_data)
+
+
+@app.get("/get-segment-details/{cluster_id}")
+async def get_segment_details(cluster_id: int):
+    segment = cluster_profiles[cluster_profiles['Cluster'] == cluster_id]
+    if not segment.empty:
+        return segment.to_dict(orient="records")[0]
+    else:
+        return {'error': 'Cluster not found'}
+
+    
+@app.get("/segment-stats")
+async def get_segnent_stats():
+    ''' returns statsitic for each segment'''
+    return segement_stats_dict
+
+@app.get("/Total Revenu")
+async def total_revenue_count():
+    total =data['Monthly_Revenue'].sum().round(2)
+    return("total_revenue:",total)
+
+@app.get("/top customers")
+async def top_performing_customer():
+    try:
+        top_performing=data.nlargest(10,"Monthly_Revenue")[["Customer_ID","Age","Gender","Segment"]]
+        top_performing_records=top_performing.to_dict(orient="records")
+        return{"top_performing_customer":top_performing_records}       
+    except Exception as e:
+        return{'error':str(e)}
+         
+    
+    
+    
+    
+    
+    
+   
+
+    
+    
+    
+    
+  
+    
+   
